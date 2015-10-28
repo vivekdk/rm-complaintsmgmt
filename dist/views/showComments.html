@@ -1,0 +1,3 @@
+<div class="redmart-container"> <h3 class="redmart-center-text"> Comments </h3> <table class="table table-striped table-bordered table-hover redmart-top-buffer"> <thead> <tr> <th> On  <th> Comment  <th> By    <tbody> <tr ng-repeat="comment in comments"> <td>{{comment.commentedOn | date : 'medium'}} <td ng-bind="comment.comment"> <td ng-bind="comment.customer">  <tr ng-show="comments.length === 0"> <td colspan="3" class="redmart-center-text"> No comments yet!!    </table> <!--   <div class="btn-group pull-right">
+    <button type="button" class="btn btn-sm" ng-click="close()">Close</button>
+  </div> --> </div>
