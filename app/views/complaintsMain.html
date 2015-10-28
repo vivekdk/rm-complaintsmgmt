@@ -1,0 +1,66 @@
+<div>
+  <h3 class="redmart-center-text"> Customer Complaints </h3>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary" ng-click="showCreateComplaint()">Create</button>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn " ng-click="getComplaints()">Refresh</button>
+  </div>
+  <table class="table table-striped table-bordered table-hover redmart-top-buffer">
+    <thead>
+      <tr>
+        <th>
+          Id
+        </th>
+        <th>
+          Created On
+        </th>        
+        <th>
+          Complaint
+        </th>  
+        <th>
+          Customer
+        </th>              
+        <th>
+          Assigned To
+        </th>        
+        <th>
+          Status
+        </th>
+        <th>
+          Comments
+        </th>                                          
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="complaint in complaints">
+        <td >{{complaint.id}}</td>
+        <td >{{complaint.createdOn | date : 'medium'}}</td>
+        <td ng-bind="complaint.complaintMessage"></td>
+        <td> 
+          {{complaint.customer.name}}
+          <br>
+          {{complaint.customer.phone}}
+          <br>
+          {{complaint.customer.email}}
+        </td>
+        <td>
+          <div ng-show="!complaint.showAssignTo">
+            {{complaint.assignedTo}}
+          </div>
+          <div ng-show="complaint.showAssignTo">
+            <input ng-model="complaint.assignedTo" ng-show="true">
+            </input>
+            <button ng-click="assignTo(complaint)">ok</button>
+          </div>          
+          <a ng-click="complaint.showAssignTo = !complaint.showAssignTo" class="redmart-small-text">assign</a>
+        </td>
+        <td><a ng-click="changeStatus(complaint.id)">{{complaint.status}}</td>
+        <td>
+          <a ng-click="showComments(complaint.comments)">Comments</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- {{complaints}} -->
+</div>

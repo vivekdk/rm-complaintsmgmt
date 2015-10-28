@@ -1,0 +1,22 @@
+<div class="redmart-container">
+  <h3 class="redmart-center-text"> Create Complaint </h3>
+  <form name='complaintForm' class="form-horizontal" novalidate>
+      <div class="row form-group">
+        <div class="col-xs-12 col-lg-10 col-xs-offset-1">
+            <textarea rows="8" style="width : 100%" id="message" name="message" placeholder="Enter the complaint" ng-model="complaint.complaintMessage"></textarea>
+        </div>
+      </div>   
+
+      <div class="row form-group">
+        <customers></customers>
+      </div>   
+
+      <div class="btn-group pull-right">
+        <button type="button" class="btn btn-primary" ng-click="createComplaint()">Create</button>
+      </div>
+
+      <div class="btn-group pull-right">
+        <button type="button" class="btn " ng-click="close()">Close</button>
+      </div>            
+  </form>
+</div>
