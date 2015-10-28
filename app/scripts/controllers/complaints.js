@@ -8,7 +8,7 @@
  * Controller of the redmartApp
  */
 angular.module('redmartApp')
-  .controller('ComplaintsCtrl', ['$scope', 'redmartServices', '$modal', function($scope, redmartServices, $modal) {
+  .controller('ComplaintsCtrl', ['$scope', 'redmartServices', '$modal',  function($scope, redmartServices, $modal) {
 
   	$scope.getComplaints = function (){
   		redmartServices.getComplaints()
@@ -52,10 +52,11 @@ angular.module('redmartApp')
   		$scope.complaint = {};
 	    var modalInstance = $modal.open({
 	        templateUrl: 'views/createComplaint.html',
+          controller : 'CreateComplaintCtrl',
 	        scope : $scope,
 	        keyboard : true,
 	        backdrop  : 'static',
-	        size: 'md'
+	        size: 'lg'
 	    });
   	};
 
@@ -68,6 +69,7 @@ angular.module('redmartApp')
   		redmartServices.createComplaint ($scope.payload)
     	   .success(function(complaints){
              alert ('complaint created successfully');
+             $modalInstance.close();
              $scope.getComplaints();
           }).error(function(){
             $scope.msg = 'Error in processing your request';
