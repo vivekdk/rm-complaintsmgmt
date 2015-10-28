@@ -63,7 +63,7 @@ angular.module('redmartApp')
 
   		$scope.payload = {
   			complaintMessage : $scope.complaint.complaintMessage,
-  			  "customerId" : "562e2832c02c1ace193e56e0"
+  			  "customerId" : "5630c49c550d646562723d22"
   		};
   		redmartServices.createComplaint ($scope.payload)
     	   .success(function(complaints){
